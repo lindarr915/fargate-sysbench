@@ -71,6 +71,7 @@ General statistics:
 
 -- resource limits setting vCPU 4
 
+#### c5.2xlarge worker node
 - Score 54963
 ```
 CPU speed:
