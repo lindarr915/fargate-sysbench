@@ -44,32 +44,36 @@ General statistics:
 
 #### c5.xlarge
 - Score 43075
+```
 CPU speed:
     events per second:  1435.66
 General statistics:
     total time:                          30.0023s
     total number of events:              43075
-
+```
 #### m5.xlarge
 - Score 39081
+```
 CPU speed:
     events per second:  1302.54
 
 General statistics:
     total time:                          30.0020s
     total number of events:              39081
-
+```
 #### r5.xlarge
+- Score 39514
+```
 CPU speed:
     events per second:  1316.98
 
 General statistics:
     total time:                          30.0022s
     total number of events:              39514
-
+```
 ### 2.3 Sysbench results on c5/m5/r5.2xlarge worker node 
 
--- resource limits setting vCPU 4
+- resource limits setting vCPU 4
 
 #### c5.2xlarge worker node
 - Score 54963
