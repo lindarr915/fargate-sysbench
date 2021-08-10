@@ -5,12 +5,12 @@ metadata:
   # namespace: demo
 spec:
   backoffLimit: 4
-  completions: 5
-  parallelism: 5
+  completions: 1
+  parallelism: 1
   template:
     spec:
-      # nodeSelector:
-        # node.kubernetes.io/instance-type: r5.2xlarge
+      nodeSelector:
+        node.kubernetes.io/instance-type: r5.xlarge
       restartPolicy: Never  
       containers:
         - name: sysbench
@@ -20,10 +20,10 @@ spec:
           args:
             ["cpu", "--threads=4", "--cpu-max-prime=20000", "--time=30", "run"]
           imagePullPolicy: IfNotPresent
-          resources:
+          # resources:
             # requests:
             #   cpu: "4"
             #   memory: "4Gi"
-            limits:
-              cpu: "4"
-              memory: "4Gi"
+            # limits:
+              # cpu: "4000m"
+              # memory: "4000m"
