@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lscpu
+  namespace: demo
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: lscpu
+  template:
+    metadata:
+      labels:
+        app: lscpu
+    spec:
+      containers:
+      - name: ubuntu
+        image: ubuntu:latest
+        command: ["/bin/sh", "-c", "lscpu | grep 'Intel' && /bin/sleep 3650d"]
+        resources:
+          requests:
+            cpu: "2"
+            memory: "2Gi"
+          limits:
+            cpu: "2"
+            memory: "2Gi"

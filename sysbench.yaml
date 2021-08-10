@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: mybench
+  # namespace: demo
+spec:
+  backoffLimit: 4
+  completions: 5
+  parallelism: 5
+  template:
+    spec:
+      # nodeSelector:
+        # node.kubernetes.io/instance-type: r5.2xlarge
+      restartPolicy: Never  
+      containers:
+        - name: sysbench
+          image: darrenlin915/sysbench
+          command:
+            - "/usr/bin/sysbench"
+          args:
+            ["cpu", "--threads=4", "--cpu-max-prime=20000", "--time=30", "run"]
+          imagePullPolicy: IfNotPresent
+          resources:
+            # requests:
+            #   cpu: "4"
+            #   memory: "4Gi"
+            limits:
+              cpu: "4"
+              memory: "4Gi"
